@@ -1,4 +1,4 @@
-# Tech Innovation AI Hackathon Starter Kit
+# Tech Innovation AI Hackathon Starter Kit.
 
 AI Hackathon starter kit consists of LangChain, Next.js and TailwindCSS.
 
