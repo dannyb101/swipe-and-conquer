@@ -25,7 +25,7 @@ const getArticles = (numRequired: Number, user: String): any => {
 }
 
 interface Summary {
-	image: string;
+	image: any;
 	headline: string;
 	summary: string;
 }
