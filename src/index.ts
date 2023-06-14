@@ -1,4 +1,4 @@
-import {express, Request, Response}  from 'express';
+import express, {Request, Response}  from 'express';
 import path from 'path';
 
 const app = express();
@@ -18,10 +18,10 @@ const getSummary = (article: string):any => {
 	return summary;
 };
 
-const getArticles = (numRequired: Number, user: String): String => {
+const getArticles = (numRequired: Number, user: String): any => {
 	// query DPA for articles
 	// return article uuids
-	return "";
+	return [];
 }
 
 interface Summary {
@@ -34,7 +34,9 @@ app.get('/', (req: Request, res: Response) => {
 	// user hits this base endpoint and gets directed to the first page
 	// we send the initial article summaries, images and headlines
 	// how many articles do we send?
-	let user = req.body.user;
+
+	// let user = req.body.user;
+	let user = "user1";
 	let articles = getArticles(5, user);
 	let summaries: Summary[] = [];
 
@@ -43,10 +45,10 @@ app.get('/', (req: Request, res: Response) => {
 	}
 
 	// res.send(articles);
-	res.sendFile(path.join(__dirname, 'index.html'));
+	res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-app.get('/swipe', (req:Request, res: Request) => {
+app.get('/swipe', (req:Request, res: Response) => {
 	// on swipe this endpoint is called from an ajax post request
 	// this sends data about the length of time the user has spent on that article
 	// this data is used to update the recommendation engine
