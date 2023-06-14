@@ -4,16 +4,15 @@ import { fetchEventSource } from "@microsoft/fetch-event-source";
 import { useEffect, useRef, useState } from "react";
 
 const navigation = [
-  { name: 'Prototype', href: '#', current: true },
-  { name: 'Presentation', href: '#', current: false },
-]
+  { name: "Prototype", href: "#", current: true },
+  { name: "Presentation", href: "#", current: false },
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Home() {
-
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -22,7 +21,7 @@ export default function Home() {
   const handlePrompt = () => {
     // Clear the pervious messages - turn chat into one-shot
     // prompting. Comment the line to go back to chat
-    setAnswer('');
+    setAnswer("");
 
     if (promptInput && promptInput.current) {
       const prompt = promptInput.current.value;
@@ -47,7 +46,7 @@ export default function Home() {
       promptInput.current.focus();
     }
   }, []);
-  
+
   return (
     <>
       <div className="min-h-full">
@@ -56,7 +55,11 @@ export default function Home() {
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <img className="h-8 w-8" src="/logo.svg" alt="Tech Innovation" />
+                  <img
+                    className="h-8 w-8"
+                    src="/logo.svg"
+                    alt="Tech Innovation"
+                  />
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
@@ -66,11 +69,11 @@ export default function Home() {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? 'bg-tertiary text-tertiary'
-                            : 'text-white hover:bg-tertiary hover:text-primary',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                            ? "bg-tertiary text-tertiary"
+                            : "text-white hover:bg-tertiary hover:text-primary",
+                          "px-3 py-2 rounded-md text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </a>
@@ -84,14 +87,18 @@ export default function Home() {
 
         <header className="bg-white shadow">
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">Tech Innovation - Hackathon Starter Kit</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+              Tech Innovation - Hackathon Starter Kit.
+            </h1>
           </div>
         </header>
 
         <main className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center w-full space-x-4">
             <div className="w-2/5">
-              <label htmlFor="prompt" className="sr-only">Prompt</label>
+              <label htmlFor="prompt" className="sr-only">
+                Prompt
+              </label>
               <input
                 ref={promptInput}
                 type="text"
@@ -122,5 +129,5 @@ export default function Home() {
         </main>
       </div>
     </>
-  )
+  );
 }
